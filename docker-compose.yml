@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  maildev:
+    image: maildev/maildev
+    ports:
+      - "1080:1080"     # Web Interface
+      - "1025:1025"     # SMTP Server
+    volumes:
+      - maildata:/app/maildata   # Using named volume
+      # OR for bind mounting a host directory:
+      # - ./path/on/host:/app/maildata
+
+volumes:
+  maildata:
